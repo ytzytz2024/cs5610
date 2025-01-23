@@ -1,0 +1,17 @@
+body {
+  font-family: "Roboto", serif;
+  background-color: rgb(231, 225, 214);
+}
+
+header {
+  text-align: center;
+  border-bottom: 2px dotted darkslateblue;
+  padding-bottom: 5px;
+}
+
+h1 {
+  font-size: 2.2em;
+  color: #1050aa;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
