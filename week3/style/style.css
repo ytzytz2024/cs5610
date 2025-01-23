@@ -24,6 +24,14 @@ h1 {
   margin: 10px 0;
 }
 
-a[href="https://github.com"]:hover {
+a[href*="github"]:hover {
   color: crimson;
+}
+
+h2::first-letter {
+  font-size: 3rem;
+}
+
+a[href*="github"]::after {
+  content: url("../images/WechatIMG140.jpg");
 }
