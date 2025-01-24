@@ -48,10 +48,16 @@ header > a:nth-of-type(2) {
     list-style-type: none;
 }
 
-.experience > .experience-list > li:first-child ~ li {
+.experience > .experience-list > li ~ li {
   color: darkGreen;
 }
 
 a[href$=".edu"]::before {
   content: url("../images/WechatIMG141.jpg");
 }
+
+.skills li:last-child {
+  font-size: 1.3rem;
+  background-color: rgba(120, 120, 120, 0.2);
+}
+
