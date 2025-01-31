@@ -53,16 +53,23 @@ function displayOrderSummary(order) {
 let order = {flavor: "mango", size: "medium", toppings: ["boba", "jelly"], finalPrice: 5.63 }
 displayOrderSummary(order);
 
-/*
-function placeOrder(flavor, size, toppings) {
 
-  let order = {flavor:..., size:..., toppings:..., finalPrice:...}
+function placeOrder(flavor, size, toppings) {
+  // const prices = { original: 2.5, mango: 3.0, strawberry: 3.5, small: 1.0, medium: 1.5, large: 2.0, boba: 0.5, jelly: 0.75, pudding: 1.0 };
+
+  let flavorPrice = prices[flavor];
+  let sizePrice = prices[size];
+  let toppingsPrice = toppings.reduce((total, topping) => total + prices[topping], 0);
+
+  let finalPrice = sizePrice * (flavorPrice + toppingsPrice);
+
+
+  let order = {flavor: flavor, size: size, toppings: toppings, finalPrice: finalPrice}
   displayOrderSummary(order)
   }
 
-let flavor = "mango";
-let size = "small";
-let toppings = ["chocolate", "sprinkles"];
+let flavor = "original";
+let size = "medium";
+let toppings = ["boba", "jelly"];
 placeOrder(flavor, size, toppings);
 
-*/
