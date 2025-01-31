@@ -45,11 +45,15 @@ const prices = { original: 2.5, mango: 3.0, strawberry: 3.5, small: 1.0,
 
 function displayOrderSummary(order) {
   // example order object: 
-  //{falvor:"mango", size:"medium", toppings:["boba","jelly"], totalPrice: 5.63 }
-order.flavor = prices[order.flavor];
+  // {flavor: "mango", size: "medium", toppings: ["boba", "jelly"], finalPrice: 5.63 }
+  // const toppingsList = order.toppings.join(", ");
+  console.log(`You have ordered a ${order.size} ${order.flavor} boba with these toppings: ${order.toppings.join(" ")}\nTotal price: $${order.finalPrice}`);
 }
 
+let order = {flavor: "mango", size: "medium", toppings: ["boba", "jelly"], finalPrice: 5.63 }
+displayOrderSummary(order);
 
+/*
 function placeOrder(flavor, size, toppings) {
 
   let order = {flavor:..., size:..., toppings:..., finalPrice:...}
@@ -60,4 +64,5 @@ let flavor = "mango";
 let size = "small";
 let toppings = ["chocolate", "sprinkles"];
 placeOrder(flavor, size, toppings);
+
 */
