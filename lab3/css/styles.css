@@ -1,0 +1,31 @@
+body {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  /* height: 100vh; /* Full viewport height */
+  /* margin: 0; /* Remove default margin */
+}
+
+form {
+  background-color: lightgray; /* Different background color */
+  max-width: 400px; /* Maximum width */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px; /* Shadow */
+
+  display: flex; 
+  flex-direction: column; 
+
+}
+
+
+label,
+select,
+button {
+  display: block;
+  margin: 10px;
+  /* text-align: center; /* Center text inside elements */
+}
+
+
+
