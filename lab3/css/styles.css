@@ -1,9 +1,8 @@
 body {
   display: flex;
   justify-content: center; /* Centers horizontally */
-  align-items: center; /* Centers vertically */
-  /* height: 100vh; /* Full viewport height */
-  /* margin: 0; /* Remove default margin */
+  align-items: center; 
+  height: 100vh; 
 }
 
 form {
@@ -23,8 +22,8 @@ label,
 select,
 button {
   display: block;
-  margin: 10px;
-  /* text-align: center; /* Center text inside elements */
+  margin: 5px;
+  /* text-align: center; */
 }
 
 
