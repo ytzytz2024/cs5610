@@ -23,9 +23,9 @@ const result = calculateArea();
 console.log(result);
 
 resultP.innerText += result;
-*/
 
-/*
+
+
 function populateShoppingList(items) {
   const shoppingList = document.querySelector(".shopping");
   for (let item of items) {
@@ -46,7 +46,7 @@ function changeListMarkerType() {
 }
 
 changeListMarkerType();
-*/
+
 
 const button = document.querySelector("#updateImage");
 function changeButtonText() {
@@ -64,4 +64,18 @@ function changeButtonText() {
 button.addEventListener("click", changeButtonText);
 // (alternative way) if I want this to be called only one time
 // button.addEventListener("click", changeButtonText, {once: true});
+
+*/
+
+
+const buttonContainer = document.querySelector(".buttons");
+
+function changeButtonColor(event) {
+  if (event.target.nodeName === "BUTTON") {
+    console.log(event.target.innerText);
+    event.target.style.backgroundColor = event.target.innerText;
+  }
+}
+
+buttonContainer.addEventListener("mouseover", changeButtonColor);
 
