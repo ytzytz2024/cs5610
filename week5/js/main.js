@@ -46,16 +46,27 @@ function changeListMarkerType() {
 }
 
 changeListMarkerType();
-
+*/
 
 const button = document.querySelector("#updateImage");
+
+// check the storage for the item
+const buttonText = localStorage.getItem("buttonText");
+console.log(buttonText);
+if (buttonText) {
+    button.innerText = buttonText;
+}
+
+
 function changeButtonText() {
     if (button.innerText === "clicked!") {
         button.innerText = "Click Me!";
+
     }
     else if (button.innerText === "Click Me!") {
         button.innerText = "clicked!";
     }
+    localStorage.setItem("buttonText", button.innerText);
 }
     // if I want this to be called only one time
     // button.removeEventListener("click", changeButtonText);
@@ -65,7 +76,7 @@ button.addEventListener("click", changeButtonText);
 // (alternative way) if I want this to be called only one time
 // button.addEventListener("click", changeButtonText, {once: true});
 
-*/
+
 
 
 const buttonContainer = document.querySelector(".buttons");
