@@ -25,6 +25,7 @@ console.log(result);
 resultP.innerText += result;
 */
 
+/*
 function populateShoppingList(items) {
   const shoppingList = document.querySelector(".shopping");
   for (let item of items) {
@@ -44,5 +45,23 @@ function changeListMarkerType() {
   shoppingList.classList.add("squareList");
 }
 
-// Example usage:
 changeListMarkerType();
+*/
+
+const button = document.querySelector("#updateImage");
+function changeButtonText() {
+    if (button.innerText === "clicked!") {
+        button.innerText = "Click Me!";
+    }
+    else if (button.innerText === "Click Me!") {
+        button.innerText = "clicked!";
+    }
+}
+    // if I want this to be called only one time
+    // button.removeEventListener("click", changeButtonText);
+
+// cannot pass parameters to the function changeButtonText
+button.addEventListener("click", changeButtonText);
+// (alternative way) if I want this to be called only one time
+// button.addEventListener("click", changeButtonText, {once: true});
+
