@@ -1,3 +1,4 @@
+/*
 const radiusP = document.querySelector("#radius");
 const resultP = document.querySelector("#result");
 
@@ -22,3 +23,17 @@ const result = calculateArea();
 console.log(result);
 
 resultP.innerText += result;
+*/
+
+function populateShoppingList(items) {
+  const shoppingList = document.querySelector(".shopping");
+  for (let item of items) {
+    //we need a li element for each item
+    const listItem = document.createElement("li");
+    listItem.innerText = item;
+    shoppingList.appendChild(listItem);
+  };
+}
+
+let shoppingItems = ["bread", "cheese", "green pepper"];
+populateShoppingList(shoppingItems);
