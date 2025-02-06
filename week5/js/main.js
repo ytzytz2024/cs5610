@@ -1,4 +1,4 @@
-/*
+
 const radiusP = document.querySelector("#radius");
 const resultP = document.querySelector("#result");
 
@@ -46,7 +46,7 @@ function changeListMarkerType() {
 }
 
 changeListMarkerType();
-*/
+
 
 const button = document.querySelector("#updateImage");
 
