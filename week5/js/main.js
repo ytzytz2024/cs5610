@@ -37,3 +37,12 @@ function populateShoppingList(items) {
 
 let shoppingItems = ["bread", "cheese", "green pepper"];
 populateShoppingList(shoppingItems);
+
+function changeListMarkerType() {
+  const shoppingList = document.querySelector(".shopping");
+  // shoppingList.setAttribute("class", "squareList");
+  shoppingList.classList.add("squareList");
+}
+
+// Example usage:
+changeListMarkerType();
