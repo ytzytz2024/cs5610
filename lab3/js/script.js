@@ -2,13 +2,14 @@ const prices = { original: 2.5, mango: 3.0, strawberry: 3.5, small: 1.0,
   medium: 1.5, large: 2.0, boba: 0.5, jelly: 0.75, pudding: 1.0 };
 
 function displayOrderSummary(order) {
-  // example order object: 
-  // {flavor: "mango", size: "medium", toppings: ["boba", "jelly"], finalPrice: 5.63 }
+  let summaryContent = document.getElementById("order-summary").querySelector("p");
   if (orderChecker(order.flavor, order.size)) {
-    console.log(`You have ordered a ${order.size} ${order.flavor} boba with these toppings: ${
-      order.toppings.join(" ")}\nTotal price: $${order.finalPrice.toFixed(2)}`);
+    summaryContent.innerText = (`You have ordered a ${order.size} ${order.flavor} boba with these toppings: ${
+      order.toppings.join(" ")}. Total price: $${order.finalPrice.toFixed(2)}`);
   }
-  
+  else {
+    summaryContent.innerText = "Your order details will appear here.";
+  }
 }
 
 function orderChecker(flavor, size) {
@@ -49,14 +50,4 @@ function placeOrder() {
   let order = {flavor: flavor, size: size, toppings: toppings, finalPrice: finalPrice}
   displayOrderSummary(order)
 }
-
-/* Test cases
-let order = {flavor: "original", size: "medium", toppings: ["boba", "jelly"], finalPrice: 5.63 }
-displayOrderSummary(order);
-  
-let flavor = "mango";
-let size = "medium";
-let toppings = ["boba", "jelly"];
-placeOrder(flavor, size, toppings);
-*/
 
