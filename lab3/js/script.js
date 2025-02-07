@@ -8,6 +8,7 @@ function displayOrderSummary(order) {
     console.log(`You have ordered a ${order.size} ${order.flavor} boba with these toppings: ${
       order.toppings.join(" ")}\nTotal price: $${order.finalPrice.toFixed(2)}`);
   }
+  
 }
 
 function orderChecker(flavor, size) {
