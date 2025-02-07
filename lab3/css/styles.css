@@ -26,5 +26,18 @@ button {
   /* text-align: center; */
 }
 
+div {
+  background-color: lightgray; /* Different background color */
+  max-width: 400px; /* Maximum width */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px; /* Shadow */
+  margin-top: 20px;
+
+  display: flex; 
+  flex-direction: column; 
+
+}
+
 
 
