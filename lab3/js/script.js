@@ -1,23 +1,46 @@
 const prices = { original: 2.5, mango: 3.0, strawberry: 3.5, small: 1.0, 
   medium: 1.5, large: 2.0, boba: 0.5, jelly: 0.75, pudding: 1.0 };
- 
 
 function displayOrderSummary(order) {
   // example order object: 
   // {flavor: "mango", size: "medium", toppings: ["boba", "jelly"], finalPrice: 5.63 }
-  // const toppingsList = order.toppings.join(", ");
-  console.log(`You have ordered a ${order.size} ${order.flavor} boba with these toppings: ${
-    order.toppings.join(" ")}\nTotal price: $${order.finalPrice.toFixed(2)}`);
+  if (orderChecker(order.flavor, order.size)) {
+    console.log(`You have ordered a ${order.size} ${order.flavor} boba with these toppings: ${
+      order.toppings.join(" ")}\nTotal price: $${order.finalPrice.toFixed(2)}`);
+  }
 }
 
+function orderChecker(flavor, size) {
+  if (!flavor || !size) {
+    alert("Please select both a flavor and a size.");
+    return false;
+  }
+  return true;
+}
 
+const submitButton = document.getElementById("submit");
+submitButton.addEventListener("click", placeOrder);
 
-function placeOrder(flavor, size, toppings) {
+function placeOrder() {
+  let flavor = document.getElementById("flavor").value;
+  console.log(flavor);
+  let size = document.getElementById("size").value;
+  console.log(size);
+  let toppingsSelect = document.getElementById("toppings");
+  let toppings = [];
+  for (let i = 0; i < toppingsSelect.options.length; i++) {
+    if (toppingsSelect.options[i].selected && toppingsSelect.options[i].value !== "") {
+      toppings.push(toppingsSelect.options[i].value);
+    }
+  }
+  console.log(toppings);
+
   let flavorPrice = prices[flavor];
   let sizePrice = prices[size];
   let toppingsPrice = 0;
+  
   for (i = 0; i < toppings.length; i++) {
-    toppingsPrice = toppingsPrice+ prices[toppings[i]];
+    toppingsPrice = toppingsPrice + prices[toppings[i]];
   }
   
   let finalPrice = sizePrice * (flavorPrice + toppingsPrice);
@@ -26,7 +49,7 @@ function placeOrder(flavor, size, toppings) {
   displayOrderSummary(order)
 }
 
-// Test cases
+/* Test cases
 let order = {flavor: "original", size: "medium", toppings: ["boba", "jelly"], finalPrice: 5.63 }
 displayOrderSummary(order);
   
@@ -34,4 +57,5 @@ let flavor = "mango";
 let size = "medium";
 let toppings = ["boba", "jelly"];
 placeOrder(flavor, size, toppings);
+*/
 
