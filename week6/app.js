@@ -1,5 +1,6 @@
+/*
 const fs = require("fs");
-console.log(fs)
+// console.log(fs)
 fs.writeFile("data.txt", "Hello World", (err) => {
     if (err) {
         console.log("Error writing file")
@@ -9,13 +10,18 @@ fs.writeFile("data.txt", "Hello World", (err) => {
 
     fs.readFile("data.txt", "utf8", (err, data) => {
         if (err) {
-            console.log("Error reading file")
+            console.log(err)
         } else {
             console.log(data)
         }
     });
 });
+*/
 
 
 
 // function writeCB() {}
+
+const logger = require("./logger.js"); 
+console.log(logger.version);
+logger.log();
