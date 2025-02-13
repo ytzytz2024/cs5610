@@ -18,10 +18,31 @@ fs.writeFile("data.txt", "Hello World", (err) => {
 });
 */
 
-
-
 // function writeCB() {}
 
+/*
 const logger = require("./logger.js"); 
 console.log(logger.version);
 logger.log();
+*/
+
+const express = require("express");
+const app = express();
+// console.log(app);
+
+app.get("/", function (req, res) {
+  // res
+  res.send("Hello World");
+  // console.log(req);
+});
+
+app.get("/tasks", function (req, res) {
+    // res
+    res.send('<h1>List of All Tasks QQQQQQ</h1>');
+    // console.log(req);
+  });
+
+const port = 3000;
+app.listen(port, function () {
+  console.log(`Server is running on port ${port}`);
+});
