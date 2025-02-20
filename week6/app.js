@@ -29,6 +29,7 @@ logger.log();
 const express = require("express");
 const app = express();
 // console.log(app);
+app.use(express.static('public'));
 
 app.get("/", function (req, res) {
   res.send("Hello World");
@@ -36,7 +37,7 @@ app.get("/", function (req, res) {
 });
 
 app.get("/tasks", function (req, res) {
-  res.send("<h1>List of All Tasks pppppppQ</h1>");
+  res.send("<h1>List of All Tasks QQQpQ</h1>");
   console.log(req.params); 
   console.log(req.query);
 });
