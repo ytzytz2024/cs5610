@@ -28,27 +28,23 @@ logger.log();
 
 const express = require("express");
 const app = express();
+app.set("view engine", "pug"); 
+app.set("views", "./views");
 // console.log(app);
+
+app.use(express.static('public'));
+
+const tasksRouter = require("./routes/tasks.js"); 
+// mount the router from tasks.js in this line
+app.use("/tasks", tasksRouter)
 
 app.get("/", function (req, res) {
   res.send("Hello World");
   // console.log(req);
 });
 
-app.get("/tasks", function (req, res) {
-  res.send("<h1>List of All Tasks pppppppQ</h1>");
-  console.log(req.params); 
-  console.log(req.query);
-});
-
-app.get("/tasks/:taskId", function (req, res) {
-  // res.send('<h1>List of All Tasks QQQQQQ</h1>');
-  console.log("I am in the tasks/:taskId route");
-  console.log(req.params.taskId);
-  res.send(`you are viewing task ${req.params.taskId}`);
-});
-
 const port = 3000;
+
 app.listen(port, function () {
   console.log(`Server is running on port ${port}`);
 });
