@@ -11,7 +11,8 @@ router.get("/:taskId", function (req, res) {
   // res.send('<h1>List of All Tasks QQQQQQ</h1>');
   console.log("I am in the tasks/:taskId route");
   console.log(req.params.taskId);
-  res.send(`<p>you are viewing task ${req.params.taskId}<p>`);
+  // res.send(`<p>you are viewing task ${req.params.taskId}<p>`);
+  res.render("task", { id: req.params.taskId });
 });
 
 module.exports = router;
