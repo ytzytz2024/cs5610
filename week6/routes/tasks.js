@@ -34,13 +34,18 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:taskId", async (req, res) => {
-    try {
-  const response = await axios.get(`https://jsonplaceholder.typicode.com/todos/${req.params.taskId}`);
-    console.log(response.data);
-    res.render("task", { id: req.params.taskId,tilte: response.data.title, completed: response.data.completed });
+  try {
+    const response = await axios.get(`https://jsonplaceholder.typicode.com/todos/${req.params.taskId}`);
+    const userResponse = await axios.get(`https://jsonplaceholder.typicode.com/users/${req.params.taskId}`);
 
-  }
-  catch (error) {
+    console.log(response.data);
+    res.render("task", { 
+      id: req.params.taskId, 
+      title: response.data.title, 
+      completed: response.data.completed,
+      userName: userResponse.data.name
+    });
+  } catch (error) {
     console.log(error.message);
   }
 
