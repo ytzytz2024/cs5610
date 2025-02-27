@@ -41,6 +41,9 @@ app.set("views", "./views");
 
 app.use(express.static('public'));
 
+app.use(express.json()) // for parsing application/json
+app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
 const tasksRouter = require("./routes/tasks.js"); 
 // mount the router from tasks.js in this line
 app.use("/tasks", tasksRouter)
@@ -58,7 +61,7 @@ app.listen(port, async function () {
     await db.connect();
     console.log("Connected to DB");
 
-    db.addToDB({task: "Reading", user: "Yin"});
+   //  db.addToDB({task: "Reading", user: "Yin"});
 
 
 });
