@@ -32,7 +32,7 @@ console.log(db);
 const express = require("express");
 const app = express();
 
-require('dotenv').config()
+// require('dotenv').config()
 console.log(process.env)
 
 app.set("view engine", "pug"); 
