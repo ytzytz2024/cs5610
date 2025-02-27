@@ -8,11 +8,17 @@ router.post("/",async (req,res)=>{
   console.log(req.body);
   // call addToDB
   await db.addToDB(req.body);
-  res.send("Data received");
+  // res.send("Data received");
+  res.redirect("/tasks");
   } catch (error) {
     console.log(error.message);
   }
   
+});
+
+// show new form
+router.get('/newtask', function (req, res) {
+  res.render('taskForm');
 });
 
 // this is the handler for the /tasks route
