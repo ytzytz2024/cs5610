@@ -38,11 +38,13 @@ export default App
 */
 
 import React from 'react'
+import Header from './components/Header'
 
 export default function App() {
+  const appName = 'My Awesome App111'
   return (
     <div>
-      <h1>Hello World</h1>
+      <Header myAppName={appName} version={2}/>
     </div>
   ) 
 }
