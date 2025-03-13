@@ -33,7 +33,7 @@ const express = require("express");
 const app = express();
 
 // require('dotenv').config()
-console.log(process.env)
+// console.log(process.env)
 
 app.set("view engine", "pug"); 
 app.set("views", "./views");
@@ -62,6 +62,7 @@ app.listen(port, async function () {
     console.log("Connected to DB");
 
    //  db.addToDB({task: "Reading", user: "Yin"});
+   await db.getAllTasks();
 
 
 });
