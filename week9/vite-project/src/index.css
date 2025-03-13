@@ -47,7 +47,9 @@ h1 {
   align-items: center; 
 }
 
-
+.taskContainer {
+  background-color: #f0f0f0; /* Light grey */
+}
 
 button {
   border-radius: 8px;
