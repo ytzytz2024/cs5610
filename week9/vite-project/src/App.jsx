@@ -1,50 +1,39 @@
-/*
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-          I did edit it!
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
-*/
-
 import React from 'react'
 import Header from './components/Header'
 
 export default function App() {
   const appName = 'My Awesome App111'
+  const tasks = [
+    {
+      id: 1,
+      title: "Review week 9 material",
+      date: "June 4th at 1 pm",
+    },
+    {
+      id: 2,
+      title: "Do quiz 9",
+      date: "June 4th at 6 pm",
+    },
+    {
+      id: 3,
+      title: "Work on assignment 2",
+      date: "June 5th at 8 am",
+    },
+  ];
   return (
-    <div>
+    <div className = "appContainer">
       <Header myAppName={appName} version={2}/>
+      <ul>
+
+        {tasks.map((task) => (
+          <li key={task.id}>
+            {task.title}
+          </li>
+        ))}
+      </ul>
+
     </div>
   ) 
 }
+
+
