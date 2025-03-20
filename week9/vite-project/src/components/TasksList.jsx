@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Task from './Task';
+import { DiChrome } from "react-icons/di";
 
 export default function TasksList() {
   const [tasks, setTasks] = useState([
@@ -20,14 +21,22 @@ export default function TasksList() {
     },
   ]);
 
-
+  const deleteTask = (taskId) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+  };
 
   return (
-    <ul>
-      {tasks.map((task) => {
-        return <Task key={task.id} taskObj={task} />;
-    })}
-    </ul>
+    <div>
+      {tasks.length > 0 ? (
+        <ul>
+          {tasks.map((task) => (
+            <Task key={task.id} taskObj={task} onDelete={deleteTask} />
+          ))}
+        </ul>
+      ) : (
+        <p>No tasks left!</p>
+      )}
+    </div>
   );
 }
 
