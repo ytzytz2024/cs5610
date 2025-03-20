@@ -24,6 +24,7 @@ a:hover {
 
 body {
   margin: 0;
+  display: flex;
   /* place-items: center;*/
   min-width: 320px;
   min-height: 100vh;
@@ -36,19 +37,9 @@ h1 {
 }
 .appContainer {
   max-width: 1280px;
-  margin: 20px; /* Margin */
-  padding: 20px; /* Padding */
-  border: 2px solid #ccc; /* Border around the div */
-}
-
-.headerContainer {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center; 
-}
-
-.taskContainer {
-  background-color: #f0f0f0; /* Light grey */
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
 button {
@@ -68,6 +59,25 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.taskContainer {
+  background-color: #f0f0f0; /* Background color */
+  margin: 10px; /* Margin */
+  padding: 10px; /* Padding */
+  border-radius: 5px; /* Rounded corners */
+  display: flex; /* Flex container */
+  justify-content: space-between; /* Space between text and icon */
+  align-items: center; /* Center vertically */
+}
+
+.form-control {
+  margin: 20px 0;
+  display:flex;
+}
+
+.form-control label {
+  margin-right: 10px;
 }
 
 @media (prefers-color-scheme: light) {
