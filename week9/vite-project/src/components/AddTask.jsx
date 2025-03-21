@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function AddTask() {
+export default function AddTask({ onAddTask }) {
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
 
@@ -12,14 +12,13 @@ export default function AddTask() {
     setDate(e.target.value);
   };
 
-  function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newTask = { title, date };
-    console.log('New Task:', newTask);
+    await onAddTask(newTask);
     setTitle('');
     setDate('');
-
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
