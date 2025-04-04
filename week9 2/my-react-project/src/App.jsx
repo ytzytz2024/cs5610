@@ -3,11 +3,17 @@ import Header from "./components/Header.jsx";
 import TasksList from "./components/TasksList.jsx";
 import AddTask from "./components/addTask.jsx";
 import TaskDetails from "./components/TaskDetails.jsx";
+import Profile from "./components/Profile.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import { Routes, Route, Link, NavLink } from "react-router";
 import { BrowserRouter } from "react-router";
+import LoginButton from "./components/LoginButton.jsx";
+import LogoutButton from "./components/LogoutButton.jsx";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function App() {
   const [tasksFromServer, setTasksFromServer] = useState([]);
+  const { isAuthenticated, isLoading } = useAuth0();
   let controller = new AbortController();
   let signal = controller.signal;
 
@@ -36,54 +42,20 @@ export default function App() {
 
   const appName = "My App AAA";
 
-  // function Counter() {
-  //   const [form, setCount] = useState({name: '张三', age: 18});
-  //   const unchangedCount = 0;
-
-  //   function handleClick() {
-  //     setCount({...form, // 保留其他状态变量
-  //       name: '李四'
-  //     }); // 更改状态变量会触发重新渲染
-  //     unchangedCount + 1;
-  //   }
-
-  //   return <button onClick={handleClick}>点击次数: {unchangedCount}{form.name} {form.age}</button>; // UI会更新
-  // }
-
-  // function ControlledInput() {
-  //   const [value1, setValue] = useState('5');
-
-  //   return (
-  //     <div>
-  //       <input
-  //         value={value1}
-  //         onChange={(e) => setValue(e.target.value)}
-  //         type="text"
-  //       />
-  //     </div>
-  //   );
-  // }
-
-  return (
+  return isLoading ? (
+    <img src="https://cdn.auth0.com/blog/auth0-react-sample/assets/loading.svg" />
+  ) : (
     <div className="appContainer">
       <nav>
-        <NavLink
-          // className={(props) +> {
-          //   console.log(props);
-          //   return props.className + ' active';
-          // }}
-          to="/"
-        >
-          Home
-        </NavLink>
-        {/* <a href="/">Home</a> */}
-        <Link to="/tasks">Tasks</Link>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/tasks">Tasks</NavLink>
+        <NavLink to="/profile">Profile</NavLink>
       </nav>
-      {/* <Header myAppName={appName} version={2} /> */}
-      {/* <AddTask /> */}
-      {/* <TasksList tasks={tasksFromServer} /> */}
-      {/* <Counter /> */}
-      {/* <ControlledInput /> */}
+
+      <div className="auth-buttons">
+        {isAuthenticated ? <LogoutButton /> : <LoginButton />}
+      </div>
+
       <Routes>
         <Route
           path="/"
@@ -97,8 +69,10 @@ export default function App() {
         <Route path="/tasks" element={<TasksList tasks={tasksFromServer} />}>
           <Route path=":taskId" element={<TaskDetails />} />
         </Route>
-
-        {/* <Route path="/tasks/:taskId" element={<h1>Task Details</h1>} /> */}
+        <Route
+          path="/profile"
+          element={<ProtectedRoute component={Profile} />}
+        />
         <Route path="*" element={<h1>404 - Page Not Found</h1>} />
       </Routes>
     </div>
