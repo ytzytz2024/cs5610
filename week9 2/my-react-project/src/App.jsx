@@ -10,9 +10,13 @@ import { BrowserRouter } from "react-router";
 import LoginButton from "./components/LoginButton.jsx";
 import LogoutButton from "./components/LogoutButton.jsx";
 import { useAuth0 } from "@auth0/auth0-react";
+import { IoTrashBin } from "react-icons/io5";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function App() {
   const [tasksFromServer, setTasksFromServer] = useState([]);
+  const [menuOpen, setMenuOpen] = useState(false); // State for menu toggle
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth); // State for screen width
   const { isAuthenticated, isLoading } = useAuth0();
   let controller = new AbortController();
   let signal = controller.signal;
@@ -40,6 +44,17 @@ export default function App() {
     };
   }, []);
 
+  useEffect(() => {
+    function handleResize() {
+      setScreenWidth(window.innerWidth);
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const appName = "My App AAA";
 
   return isLoading ? (
@@ -47,9 +62,16 @@ export default function App() {
   ) : (
     <div className="appContainer">
       <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/tasks">Tasks</NavLink>
-        <NavLink to="/profile">Profile</NavLink>
+        <div onClick={() => setMenuOpen(!menuOpen)} className="menu-icon">
+          {menuOpen ? <FaTimes />: <FaBars />}
+        </div>
+        {(menuOpen || screenWidth > 576) && (
+          <div className="nav-links">
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/tasks">Tasks</NavLink>
+            <NavLink to="/profile">Profile</NavLink>
+          </div>
+        )}
       </nav>
 
       <div className="auth-buttons">
